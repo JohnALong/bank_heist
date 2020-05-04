@@ -1,0 +1,12 @@
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/bin/Debug/netcoreapp3.1/bank_heist.deps.json
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/bin/Debug/netcoreapp3.1/bank_heist.runtimeconfig.json
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/bin/Debug/netcoreapp3.1/bank_heist.runtimeconfig.dev.json
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/bin/Debug/netcoreapp3.1/bank_heist.dll
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/bin/Debug/netcoreapp3.1/bank_heist.pdb
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/obj/Debug/netcoreapp3.1/bank_heist.csprojAssemblyReference.cache
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/obj/Debug/netcoreapp3.1/bank_heist.csproj.CoreCompileInputs.cache
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/obj/Debug/netcoreapp3.1/bank_heist.AssemblyInfoInputs.cache
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/obj/Debug/netcoreapp3.1/bank_heist.AssemblyInfo.cs
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/obj/Debug/netcoreapp3.1/bank_heist.dll
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/obj/Debug/netcoreapp3.1/bank_heist.pdb
+/Users/jlcomp45/workspace/csharp/exercises/bank_heist/obj/Debug/netcoreapp3.1/bank_heist.genruntimeconfig.cache
