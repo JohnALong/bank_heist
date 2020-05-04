@@ -8,6 +8,8 @@ namespace bank_heist
     {
         static void Main(string[] args)
         {
+            Random r = new Random();
+            int luck_level = r.Next(-10, 10);
             int difficulty_level = 100;
             int sum_skill = 0;
             Console.WriteLine("Plan your heist!");
@@ -36,14 +38,18 @@ namespace bank_heist
                 members.Add(member.Name, member);
             }
             Console.WriteLine($"There are {members.Count} members on the team");
-            Console.WriteLine($"The sum of the team's skill levels is {members.Sum(x => x.Value.skillLevel)}");
             sum_skill = members.Sum(x => x.Value.skillLevel);
+            
 
-            if (sum_skill >= difficulty_level)
+            if (sum_skill >= (difficulty_level + luck_level))
             {
+                Console.WriteLine($"The bank's difficulty was {(difficulty_level + luck_level)}");
+                Console.WriteLine($"The team's skill level was {sum_skill}");
                 Console.WriteLine("You robbed the bank!");
             } else
             {
+                Console.WriteLine($"The bank's difficulty was {(difficulty_level + luck_level)}");
+                Console.WriteLine($"The team's skill level was {sum_skill}");
                 Console.WriteLine("You need bail money!");
             }
             // foreach (KeyValuePair<string, Member> x in members)
