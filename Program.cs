@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace bank_heist
 {
@@ -7,11 +8,8 @@ namespace bank_heist
         static void Main(string[] args)
         {
             Console.WriteLine("Plan your heist!");
-            CreateMember();
-        }
+            Dictionary<string, Member> members = new Dictionary<string, Member>();
 
-        private static void CreateMember()
-        {
             while (true)
             {
                 Member member = new Member();
@@ -20,44 +18,24 @@ namespace bank_heist
                 if (_name == "")
                 {
                     break;
-                }
-                try
+                } else
                 {
                     member.Name = _name;
                 }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
                 Console.WriteLine($"What is {member.Name}'s skill level?");
                 string _skillLevel = Console.ReadLine();
-                if (_skillLevel == "")
-                {
-                    break;
-                }
-                try
                 {
                     member.skillLevel = int.Parse(_skillLevel);
                 }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
                 Console.WriteLine($"What is {member.Name}'s courage? (0 - 2.0)?");
                 string _courage = Console.ReadLine();
-                if (_courage == "")
-                {
-                    break;
-                }
-                try
-                {
-                    member.courage = Convert.ToDouble(_courage);
-                }
-                catch (ArgumentException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                Console.WriteLine($"{member.Name}'s skill level is {member.skillLevel}, and his courage is {member.courage}");
+                member.courage = Convert.ToDouble(_courage);
+                members.Add(member.Name, member);
+            }
+            Console.WriteLine($"There are {members.Count} members on the team");
+            foreach (KeyValuePair<string, Member> x in members)
+            {
+                Console.WriteLine($"{x.Key} is a skill level of {x.Value.skillLevel} with a courage of {x.Value.courage}");
             }
         }
     }
