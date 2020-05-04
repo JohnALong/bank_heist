@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace bank_heist
 {
@@ -7,6 +8,8 @@ namespace bank_heist
     {
         static void Main(string[] args)
         {
+            int difficulty_level = 100;
+            int sum_skill = 0;
             Console.WriteLine("Plan your heist!");
             Dictionary<string, Member> members = new Dictionary<string, Member>();
 
@@ -33,10 +36,20 @@ namespace bank_heist
                 members.Add(member.Name, member);
             }
             Console.WriteLine($"There are {members.Count} members on the team");
-            foreach (KeyValuePair<string, Member> x in members)
+            Console.WriteLine($"The sum of the team's skill levels is {members.Sum(x => x.Value.skillLevel)}");
+            sum_skill = members.Sum(x => x.Value.skillLevel);
+
+            if (sum_skill >= difficulty_level)
             {
-                Console.WriteLine($"{x.Key} is a skill level of {x.Value.skillLevel} with a courage of {x.Value.courage}");
+                Console.WriteLine("You robbed the bank!");
+            } else
+            {
+                Console.WriteLine("You need bail money!");
             }
+            // foreach (KeyValuePair<string, Member> x in members)
+            // {
+            //     Console.WriteLine($"{x.Key} is a skill level of {x.Value.skillLevel} with a courage of {x.Value.courage}");
+            // }
         }
     }
 }
