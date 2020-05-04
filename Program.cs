@@ -10,10 +10,15 @@ namespace bank_heist
         {
             Random r = new Random();
             int luck_level = 0;
-            int difficulty_level = 100;
+            int difficulty_level = 0;
             int sum_skill = 0;
             int trial_runs = 0;
+            int success = 0;
+            int failure = 0;
             Console.WriteLine("Plan your heist!");
+            Console.WriteLine("What is the bank's difficulty level up to 100?");
+            string _difficulty_level = Console.ReadLine();
+            difficulty_level = int.Parse(_difficulty_level);
             Dictionary<string, Member> members = new Dictionary<string, Member>();
             int i = 0;
             while (true)
@@ -54,18 +59,21 @@ namespace bank_heist
                         Console.WriteLine($"The team's skill level was {sum_skill}");
                         Console.WriteLine("You robbed the bank!");
                         i++;
+                        success += 1;
                     } else
                     {
                         Console.WriteLine($"The bank's difficulty was {(difficulty_level + luck_level)}");
                         Console.WriteLine($"The team's skill level was {sum_skill}");
                         Console.WriteLine("You need bail money!");
                         i++;
+                        failure += 1;
                     }
                     // foreach (KeyValuePair<string, Member> x in members)
                     // {
                     //     Console.WriteLine($"{x.Key} is a skill level of {x.Value.skillLevel} with a courage of {x.Value.courage}");
                     // }
             }
+            Console.WriteLine($"You were successful {success} times and failed {failure} times.");
         }
     }
 }
