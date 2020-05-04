@@ -9,12 +9,13 @@ namespace bank_heist
         static void Main(string[] args)
         {
             Random r = new Random();
-            int luck_level = r.Next(-10, 10);
+            int luck_level = 0;
             int difficulty_level = 100;
             int sum_skill = 0;
+            int trial_runs = 0;
             Console.WriteLine("Plan your heist!");
             Dictionary<string, Member> members = new Dictionary<string, Member>();
-
+            int i = 0;
             while (true)
             {
                 Member member = new Member();
@@ -39,23 +40,32 @@ namespace bank_heist
             }
             Console.WriteLine($"There are {members.Count} members on the team");
             sum_skill = members.Sum(x => x.Value.skillLevel);
-            
+            Console.WriteLine("How many tries would you like?");
+            string _trial_runs = Console.ReadLine();
+            trial_runs = int.Parse(_trial_runs);
 
-            if (sum_skill >= (difficulty_level + luck_level))
+            
+            while (i < trial_runs)
             {
-                Console.WriteLine($"The bank's difficulty was {(difficulty_level + luck_level)}");
-                Console.WriteLine($"The team's skill level was {sum_skill}");
-                Console.WriteLine("You robbed the bank!");
-            } else
-            {
-                Console.WriteLine($"The bank's difficulty was {(difficulty_level + luck_level)}");
-                Console.WriteLine($"The team's skill level was {sum_skill}");
-                Console.WriteLine("You need bail money!");
+                luck_level = r.Next(-10, 10);
+                if (sum_skill >= (difficulty_level + luck_level))
+                    {
+                        Console.WriteLine($"The bank's difficulty was {(difficulty_level + luck_level)}");
+                        Console.WriteLine($"The team's skill level was {sum_skill}");
+                        Console.WriteLine("You robbed the bank!");
+                        i++;
+                    } else
+                    {
+                        Console.WriteLine($"The bank's difficulty was {(difficulty_level + luck_level)}");
+                        Console.WriteLine($"The team's skill level was {sum_skill}");
+                        Console.WriteLine("You need bail money!");
+                        i++;
+                    }
+                    // foreach (KeyValuePair<string, Member> x in members)
+                    // {
+                    //     Console.WriteLine($"{x.Key} is a skill level of {x.Value.skillLevel} with a courage of {x.Value.courage}");
+                    // }
             }
-            // foreach (KeyValuePair<string, Member> x in members)
-            // {
-            //     Console.WriteLine($"{x.Key} is a skill level of {x.Value.skillLevel} with a courage of {x.Value.courage}");
-            // }
         }
     }
 }
